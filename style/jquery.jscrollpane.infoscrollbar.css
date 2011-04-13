@@ -1,0 +1,56 @@
+
+.jspVerticalInfoScroll
+{
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.jspVerticalInfoScroll span {
+    font-size: 0;
+    width: 21px;
+    margin-left: 2px;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.jspVerticalInfoScroll span.p {
+    background: #6a5acd;
+}
+
+.jspVerticalInfoScroll span.h1 {
+    background: #000;
+    width: 18px;
+}
+
+.jspVerticalInfoScroll span.h2 {
+    background: #333;
+    width: 18px;
+}
+
+.jspVerticalInfoScroll span.h3 {
+    background: #666;
+    width: 18px;
+}
+
+.jspVerticalInfoScroll span.img {
+    background: green;
+}
+
+.jspVerticalInfoScroll span.img-special {
+    background: red;
+}
+
+.jspVerticalInfoScroll span.tt {
+    background: blue;
+}
+
+.jspVerticalBar {
+    width: 25px;
+}
+
+.jspDrag
+{
+    opacity: 0.5;
+    background-color: #ff8c00;
+}

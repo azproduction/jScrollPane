@@ -67,7 +67,8 @@
 				reinitialiseInterval, originalPadding, originalPaddingTotalWidth, previousContentWidth,
 				wasAtTop = true, wasAtLeft = true, wasAtBottom = false, wasAtRight = false,
 				originalElement = elem.clone(false, false).empty(),
-				mwEvent = $.fn.mwheelIntent ? 'mwheelIntent.jsp' : 'mousewheel.jsp';
+				mwEvent = $.fn.mwheelIntent ? 'mwheelIntent.jsp' : 'mousewheel.jsp',
+                verticalInfoScrollbar;
 
 			originalPadding = elem.css('paddingTop') + ' ' +
 								elem.css('paddingRight') + ' ' +
@@ -315,6 +316,7 @@
 							return false;
 						}
 					);
+                    initialiseVerticalInfoScrollbar();
 					sizeVerticalScrollbar();
 				}
 			}
@@ -337,6 +339,50 @@
 				} catch (err) {
 				}
 			}
+
+            function initialiseVerticalInfoScrollbar()
+            {
+                if (isScrollableV && settings.infoScrollbar) {
+                    verticalInfoScrollbar = $('<div class="jspVerticalInfoScroll" />');
+                    verticalTrack.prepend(verticalInfoScrollbar);
+                    updateVerticalInfoScrollbar();
+                }
+            }
+
+            function updateVerticalInfoScrollbar()
+            {
+                var blocks = pane.find(settings.infoScrollbarSelector),
+                    paneoffset = pane[0].offsetTop,
+                    blockOffset;
+
+                $.each(blocks, function (index, block) {
+
+                    blockOffset = block.offsetTop - paneoffset;
+                    block = $(block);
+                    var top = ~~(blockOffset / contentHeight * 100),
+                        height = ~~(block.height() / contentHeight * 100),
+                        className = [];
+
+                    $.each(settings.infoScrollbarClassTemplate, function (index, attribute) {
+                        var attribute = block.attr(attribute);
+                        if (attribute) {
+                            className.push(attribute);
+                        }
+                    });
+
+                    className = className.join('-').replace(/\s/g, '-').toLowerCase();
+
+                    verticalInfoScrollbar.append(
+                        $('<span />')
+                        .css({
+                            height: height + '%',
+                            top: top + '%'
+                        })
+                        .attr('className', className)
+                        .html('&nbsp;')
+                    );
+                });
+            }
 
 			function initialiseHorizontalScroll()
 			{
@@ -1387,7 +1433,10 @@
 		keyboardSpeed				: 0,
 		initialDelay                : 300,        // Delay before starting repeating
 		speed						: 30,		// Default speed when others falsey
-		scrollPagePercent			: .8		// Percent of visible area scrolled when pageUp/Down or track area pressed
+		scrollPagePercent			: .8,		// Percent of visible area scrolled when pageUp/Down or track area pressed
+        infoScrollbar               : false,     // Informational scrollbar
+        infoScrollbarSelector       : 'p, h1, h2, h3, h4, h5, h6, img, object, code, tt',     // Informational scrollbar block selector
+        infoScrollbarClassTemplate  : ['tagName', 'className']
 	};
 
 })(jQuery,this);
