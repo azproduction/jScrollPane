@@ -345,6 +345,9 @@
                 if (isScrollableV && settings.infoScrollbar) {
                     verticalInfoScrollbar = $('<div class="jspVerticalInfoScroll" />');
                     verticalTrack.prepend(verticalInfoScrollbar);
+                    verticalInfoScrollbar.delegate('span', 'click', function () {
+                        scrollToY($(this).data('top'));
+                    });
                     updateVerticalInfoScrollbar();
                 }
             }
@@ -378,6 +381,7 @@
                             height: height + '%',
                             top: top + '%'
                         })
+                        .data('top', blockOffset)
                         .attr('className', className)
                         .html('&nbsp;')
                     );

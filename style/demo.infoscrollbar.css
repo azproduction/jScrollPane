@@ -1,0 +1,123 @@
+
+
+body {
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 1.5em;
+    color: #333;
+}
+
+#container {
+    width: 960px;
+    margin: auto;
+}
+
+
+#container>h1 {
+    line-height: 2em;
+    margin-top: 50px;
+}
+
+.scroll-pane {
+    padding-left: 10px;
+}
+
+h1,
+h2,
+h3{
+    color: #0082c6;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+p  {
+    margin-bottom: 0.5em;
+}
+
+.jspDrag {
+    border: 1px solid #995400;
+    background-color: #FFB152;
+    opacity: 0.4;
+    border-radius: 4px;
+}
+
+.jspTrack {
+    background: #fff !important;
+}
+
+
+.jspVerticalInfoScroll span {
+    opacity: 0.2 !important;
+    border: #000 1px solid;
+    font-size: 1px;
+    margin-left: 2px !important;
+    background: #999 !important;
+    border-radius: 4px;
+    width: 19px !important;
+    cursor: pointer;
+}
+
+.jspVerticalInfoScroll span.img {
+    background: #FFCC00 !important;
+    border-color: #665200 !important;
+}
+
+.jspVerticalInfoScroll span.img-special {
+    background: #1AFF00 !important;
+    border-color: #084D00 !important;
+}
+
+.jspVerticalInfoScroll span.code {
+    background: #ff6666 !important;
+    border-color: #660000 !important;
+}
+
+.jspVerticalInfoScroll span:hover {
+    opacity: 0.7 !important;
+}
+
+
+.jspVerticalInfoScroll span.h1,
+.jspVerticalInfoScroll span.h2,
+.jspVerticalInfoScroll span.h3{
+    border: 0;
+    background: #000;
+    opacity: 0.9  !important;
+    margin-left: 3px !important;
+}
+
+#container .jspVerticalBar .jspArrow {
+    background: #444;
+}
+
+#container .jspVerticalBar .jspArrow:hover {
+    background: #777;
+}
+
+#container .jspVerticalBar {
+    margin-left: -1px;
+}
+
+#container .jspDisabled {
+    background: #999 !important;
+}
+
+.jspVerticalBar .jspArrowDown {
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.jspVerticalBar .jspArrowUp {
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.jspVerticalBar {
+    background: #fff  !important;
+}
