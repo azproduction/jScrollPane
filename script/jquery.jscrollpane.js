@@ -345,8 +345,10 @@
                 if (isScrollableV && settings.infoScrollbar) {
                     verticalInfoScrollbar = $('<div class="jspVerticalInfoScroll" />');
                     verticalTrack.prepend(verticalInfoScrollbar);
-                    verticalInfoScrollbar.delegate('span', 'click', function () {
-                        scrollToY($(this).data('top'));
+                    verticalInfoScrollbar.delegate('span', 'mousedown', function (e) {
+                        e.preventDefault();
+                        scrollToY($(this).data('top'), settings.animateScroll);
+                        return false;
                     });
                     updateVerticalInfoScrollbar();
                 }
